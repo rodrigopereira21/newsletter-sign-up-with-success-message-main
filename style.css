@@ -60,11 +60,15 @@ h1, h2 {
 label {
     font-family: var(--ff-main);
     font-size: var(--fs-label);
-    margin-bottom: 9px;
     font-weight: var(--fw-700);
+    
+    
+}
+
+.label-error {
+    margin-bottom: 9px;
     display: flex;
     justify-content: space-between;
-    
 }
 
 .invalid-email {
