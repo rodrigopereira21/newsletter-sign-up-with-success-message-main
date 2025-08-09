@@ -38,6 +38,20 @@ submitBtnEl.addEventListener("click", (e) => {
     }
 } )
 
+emailInputEl.addEventListener('input', () => {
+    const isValid = emailInput.checkValidity();
+
+    if (!isValid) {
+      emailInputEl.setAttribute('aria-describedby', 'invalid-email'); // Link error message
+      emailInputEl.setAttribute('aria-invalid', 'true');              // Mark invalid
+      invalidEmailEl.hidden = false;                                       // Show error
+    } else {
+      emailInputEl.removeAttribute('aria-describedby');                // Remove link
+      emailInputEl.setAttribute('aria-invalid', 'false');              // Mark valid
+      invalidEmailEl.hidden = true;                                        // Hide error
+    }
+  });
+
 //dismiss the success message and reset the container
 dismissMessageBtnEl.addEventListener("click", () => {
     containerEl.classList.remove("success");//remove the success class from the container showing the container again
