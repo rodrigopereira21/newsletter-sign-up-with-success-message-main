@@ -1,0 +1,275 @@
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* custom properties */
+:root {
+    /* primary color */
+    --Red: hsl(4, 100%, 67%);
+
+    /* neutral colors */
+    --Blue-800: hsl(234, 29%, 20%);
+    --Blue-700: hsl(235, 18%, 26%);
+    --Grey: hsl(0, 0%,58%);
+    --White: hsl(0, 0%, 100%);
+
+    /* font family */
+    --ff-main: 'Roboto', sans-serif;
+
+    /* font sizes */
+    --fs-main: 16px;
+    --fs-heading: 40px;
+    --fs-label: 12px;
+
+    /* font weights */
+    --fw-400: 400;
+    --fw-700: 700;
+}
+
+/* reset / global styles */
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    font-family: var(--ff-main);
+    font-size: var(--fs-main);
+    color: var(--Blue-800);
+    background-color: var(--Blue-700);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+
+}
+
+/* typography styles*/
+h1, h2 {
+    font-size: var(--fs-heading);
+    line-height: 1;
+}
+
+label {
+    font-family: var(--ff-main);
+    font-size: var(--fs-label);
+    margin-bottom: 9px;
+    font-weight: var(--fw-700);
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.invalid-email {
+    color: var(--Red);
+    font-size: 12px;
+    display: none; /* Initially hidden */
+}
+
+.invalid-email.active {
+    display: block; /* Show when the class is added */
+}
+
+/* list style */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    position: relative;
+    padding-left: 30px;
+    display: flex;
+}
+
+li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 21px;
+    height: 21px;
+    background-image: url(./assets/images/icon-list.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    
+}
+
+#email {
+    margin-bottom: 25px;
+    padding:  16px 25px;
+    border-radius: 10px;
+    color: #949494;
+    border: 2px solid #949494;
+    font-family: var(--ff-main);
+    outline: none;
+}
+
+#email.active {
+    background-color: rgba(255, 92, 87, 0.2);
+    border: 2px solid var(--Red);
+}
+
+
+/* button styles */
+button {
+    background-color: var(--Blue-800);
+    color: var(--White);
+    font-weight: var(--fw-700);
+    padding: 16px 47px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--ff-main);
+    
+}
+
+button:hover {
+    background: linear-gradient(127deg, #FF6A3A 30%, #FF527B 70%);
+    transition: all 0.3s ease-in-out;
+}
+
+/* layout styles */
+.card {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.card.success {
+    display: none;
+}
+
+.container-content {
+    padding:  42px 22px;
+}
+
+p {
+
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+
+.confirmed-message {
+    background-color: var(--White);
+    padding: 160px 25px 70px 25px;
+    display: none;
+}
+
+.confirmed-message.active {
+    display: block;
+}
+
+.dismiss-button {
+    margin-top: 260px;
+    background-color: var(--Blue-700);
+    color: var(--White);
+    padding: 20px 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--ff-main);
+    font-weight: var(--fw-700);
+}
+.success-title {
+    margin-top: 30px;
+}
+
+@media screen and (min-width: 377px) {
+    
+    .card {
+        
+        border-radius: 16px;
+    }
+
+    .confirmed-message {
+        max-width: 500px;
+        
+        
+    }
+
+    
+    
+       
+}
+
+@media screen and (min-width: 502px) {
+     .confirmed-message {
+        max-width: 504px;
+        padding: 62px;
+        border-radius: 32px;
+        
+    }
+    .dismiss-button {
+        margin-top: 40px;
+        padding: 20px 125px;
+        width: 376px;
+        
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container-content {
+    padding: 42px 0 0 0 ;
+    
+   }
+    .card {
+        padding: 42px;
+        border-radius: 32px;
+    }
+
+    h1, h2 {
+        font-size: 56px;
+    }
+    .confirmed-message {
+        max-width: 504px;
+        padding: 62px;
+        border-radius: 32px;
+    }
+
+    .dismiss-button {
+        margin-top: 40px;
+        padding: 20px 125px;
+        width: 376px;
+    }
+}
+
+@media screen and (min-width: 904px) {
+    .card {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 62px;
+        padding: 25px 32px;
+        max-width: 904px;
+        
+    }
+
+    .container-content {
+    padding:  0;
+    max-width: 376px;
+    
+}
+
+
+    
+    
+}
