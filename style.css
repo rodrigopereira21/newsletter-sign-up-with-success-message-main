@@ -71,13 +71,13 @@ label {
     justify-content: space-between;
 }
 
-.invalid-email {
+.error-message {
     color: var(--Red);
     font-size: 12px;
     display: none; /* Initially hidden */
 }
 
-.invalid-email.active {
+.error-message.active {
     display: block; /* Show when the class is added */
 }
 

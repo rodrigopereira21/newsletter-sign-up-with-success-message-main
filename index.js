@@ -32,11 +32,11 @@ submitBtnEl.addEventListener("click", (e) => {
         formSuccess();//call the formSuccess function to display the success message
         userEmailEl.innerText = email;//set the inner text of the userEmailEl to the email in success message
         emailInputEl.value = ""; //reset the input field 
-        invalidEmailEl.classList.remove("active");//remove the invalid email message
+        error-message.classList.remove("active");//remove the invalid email message
         emailInputEl.classList.remove("active");//remove the red border from the input field
     } else {
-        invalidEmailEl.classList.add("active");//add the invalid email message
-        emailInputEl.classList.add("active");//add the red border to the input field
+        error-message.classList.add("active");//add the invalid email message
+        error-message.classList.add("active");//add the red border to the input field
     }
 } )
 
