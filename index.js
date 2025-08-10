@@ -40,6 +40,19 @@ submitBtnEl.addEventListener("click", (e) => {
     }
 } )
 
+function showError() {
+  emailInput.setAttribute('aria-invalid', 'true');           // Mark input invalid
+  emailInput.setAttribute('aria-describedby', 'invalid-email'); // Reference error message
+  errorMsg.style.display = 'block';                           // Show error message
+}
+
+function clearError() {
+  emailInput.setAttribute('aria-invalid', 'false');          // Mark input valid
+  emailInput.removeAttribute('aria-describedby');            // Remove error reference
+  errorMsg.style.display = 'none';                            // Hide error message
+}
+
+
 emailInput.addEventListener('input', () => {
   if (!emailInput.validity.valid) {
     emailInput.setAttribute('aria-describedby', 'invalid-email');
