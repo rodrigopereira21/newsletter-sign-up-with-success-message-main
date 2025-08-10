@@ -6,6 +6,8 @@ const submitBtnEl = document.getElementById("submit-btn");
 
 const confirmedMessageEl = document.getElementById("confirmed-message");
 const dismissMessageBtnEl = document.getElementById("dismiss-message");
+const emailInput = document.getElementById('email');
+const errorMsg = document.getElementById('invalid-email');
 
 //display the success message and hide the container
 function formSuccess() {
@@ -38,19 +40,17 @@ submitBtnEl.addEventListener("click", (e) => {
     }
 } )
 
-emailInputEl.addEventListener('input', () => {
-    const isValid = emailInput.checkValidity();
-
-    if (!isValid) {
-      emailInputEl.setAttribute('aria-describedby', 'invalid-email'); // Link error message
-      emailInputEl.setAttribute('aria-invalid', 'true');              // Mark invalid
-      invalidEmailEl.hidden = false;                                       // Show error
-    } else {
-      emailInputEl.removeAttribute('aria-describedby');                // Remove link
-      emailInputEl.setAttribute('aria-invalid', 'false');              // Mark valid
-      invalidEmailEl.hidden = true;                                        // Hide error
-    }
-  });
+emailInput.addEventListener('input', () => {
+  if (!emailInput.validity.valid) {
+    emailInput.setAttribute('aria-describedby', 'invalid-email');
+    emailInput.setAttribute('aria-invalid', 'true');
+    errorMsg.style.display = 'block';
+  } else {
+    emailInput.removeAttribute('aria-describedby');
+    emailInput.setAttribute('aria-invalid', 'false');
+    errorMsg.style.display = 'none';
+  }
+});
 
 //dismiss the success message and reset the container
 dismissMessageBtnEl.addEventListener("click", () => {
