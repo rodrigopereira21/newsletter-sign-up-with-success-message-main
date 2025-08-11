@@ -1,7 +1,5 @@
 const containerEl = document.getElementById("container");
 const userEmailEl = document.getElementById("user-email");
-const invalidEmailEl = document.getElementById("invalid-email");
-const emailInputEl = document.getElementById("email");
 const submitBtnEl = document.getElementById("submit-btn");
 
 const confirmedMessageEl = document.getElementById("confirmed-message");
@@ -26,17 +24,17 @@ function validateEmail(email) {
 
 submitBtnEl.addEventListener("click", (e) => {
     e.preventDefault(); //prevent the default form submission behavior
-    const email = emailInputEl.value.trim(); //get the value of the email input and trim any whitespace
+    const email = emailInput.value.trim(); //get the value of the email input and trim any whitespace
 
     if (validateEmail(email)) {
         formSuccess();//call the formSuccess function to display the success message
         userEmailEl.innerText = email;//set the inner text of the userEmailEl to the email in success message
-        emailInputEl.value = ""; //reset the input field 
-        error-message.classList.remove("active");//remove the invalid email message
-        emailInputEl.classList.remove("active");//remove the red border from the input field
+        emailInput.value = ""; //reset the input field 
+        errorMsg.classList.remove("active");//remove the invalid email message
+        emailInput.classList.remove("error");//remove the red border from the input field
     } else {
-        error-message.classList.add("active");//add the invalid email message
-        error-message.classList.add("active");//add the red border to the input field
+        errorMsg.classList.add("active");//add the invalid email message
+        emailInput.classList.add("error");//add the red border to the input field
     }
 } )
 
